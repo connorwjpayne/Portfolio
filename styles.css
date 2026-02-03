@@ -1,0 +1,237 @@
+/* ===== Base layout & typography ===== */
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 18px;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+p {
+  max-width: 860px;
+  line-height: 1.75;
+  margin: 10px 0;
+}
+
+/* ===== Navigation ===== */
+nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 10px 0 18px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #0066cc;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* ===== Headings ===== */
+h1 {
+  margin-top: 18px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  letter-spacing: 0.2px;
+  color: #222;
+  border-bottom: 2px solid rgba(255,255,255,0.18);
+}
+
+h2 {
+  margin-top: 26px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+
+/* ===== Buttons ===== */
+button {
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.06s ease;
+}
+
+button:hover {
+  background-color: #004999;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Button grouping */
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 0 6px 0;
+}
+
+/* ===== Images & profile ===== */
+img {
+  border-radius: 12px;
+  border: 2px solid #ddd;
+}
+
+figure {
+  display: inline-block;
+  text-align: left;
+  margin: 18px 0 12px 0;
+  padding: 10px;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ===== Project cards ===== */
+article {
+  margin: 14px 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+/* ===== Lists ===== */
+ul {
+  margin: 10px 0 0 18px;
+}
+
+li {
+  margin: 6px 0;
+}
+
+/* ===== Dividers ===== */
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 18px 0;
+}
+
+
+/* ===== Expandable sections ===== */
+details {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 800;
+}
+
+/* ===== Home panel ===== */
+.home-panel {
+  padding: 22px 26px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  max-width: 600px;
+  margin-top: 16px;
+}
+
+/* ===== Footer / meta text ===== */
+#last-updated {
+  font-weight: 700;
+}
+
+p:last-of-type {
+  opacity: 0.9;
+}
+
+/* ===== Dark mode ===== */
+.dark {
+  background-color: #1e1e1e;
+  color: #f2f2f2;
+}
+
+.dark h1,
+.dark h2 {
+  color: #ffffff;
+}
+
+.dark a {
+  color: #8ab4f8;
+}
+
+.dark nav {
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+.dark article {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.dark details {
+  background: rgba(255,255,255,0.04);
+}
+
+.dark button {
+  background-color: #2d6cdf;
+}
+
+.dark .home-panel {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+/* Profile layout on home page */
+.profile-row {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start; 
+  flex-wrap: wrap;
+}
+
+.profile-actions a {
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+
+/* Stack nicely on small screens */
+@media (max-width: 700px) {
+  .profile-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.quick-contact {
+  list-style: none;
+  padding-left: 0;
+  margin: 6px 0 0 0;
+}
+
+.quick-contact li {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
