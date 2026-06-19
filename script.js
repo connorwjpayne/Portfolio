@@ -1,28 +1,35 @@
-function setLastUpdated() {
-    const el = document.getElementById("last-updated");
-    if (!el) return;
+const themeToggle = document.getElementById("themeToggle");
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") document.body.classList.add("dark");
 
-    const today = new Date();
-    el.textContent = today.toLocaleDateString();
+themeToggle?.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+});
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const closeLightbox = document.getElementById("closeLightbox");
+
+document.querySelectorAll(".project img, .mini-card img, .hero-visual img").forEach((img) => {
+  img.addEventListener("click", () => {
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt;
+    lightbox.classList.add("active");
+    lightbox.setAttribute("aria-hidden", "false");
+  });
+});
+
+function closePreview() {
+  lightbox.classList.remove("active");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightboxImage.src = "";
 }
 
-function applySavedTheme() {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-        document.body.classList.add("dark");
-    }
-}
-
-function setupThemeToggle() {
-    const btn = document.getElementById("theme-btn");
-    if (!btn) return;
-
-    btn.addEventListener("click", () => {
-        const isDark = document.body.classList.toggle("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-}
-
-applySavedTheme();
-setLastUpdated();
-setupThemeToggle();
+closeLightbox?.addEventListener("click", closePreview);
+lightbox?.addEventListener("click", (e) => {
+  if (e.target === lightbox) closePreview();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closePreview();
+});
